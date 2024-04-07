@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiffConcentration</title>
+  <link rel="stylesheet" href="NeedInfo.css"/>
+</head>
+    <body>
+        <script src="NeedInfo.js"></script>
+        <div class="GridContainer">
+            <div class="GridTitle">
+                <div class="TitleText">Hello My World</div>
+            </div>         
+            <div class="GridInput">
+                <input type="text" id="Input" title="InputText" onkeyup="EnterKeyUp()">
+                <div class="GridInputRadioBox">
+                    <input type="radio" id="Positive" name="state" onclick="RadioButtonOnClick(true)"/>
+                    <label for="Positive">positive</label>
+                    <input type="radio" id="Negative" name="state" onclick="RadioButtonOnClick(false)" />
+                    <label for="Negative">negative</label>
+                </div>
+            </div>
+            <div class="GridPositive">
+                <div class="CustomLabelBox" id="PositiveLabelBox"></div>
+            </div>
+            <div class="GridNegative">
+                <div class="CustomLabelBox" id="NegativeLebelBox"></div>
+            </div>
+        </div>
+    </body>
+</html>

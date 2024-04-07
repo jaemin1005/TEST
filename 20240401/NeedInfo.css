@@ -1,0 +1,82 @@
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+
+.body{
+    background-color: hsla(230, 40%, 50%, 1);
+}
+
+.GridContainer{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 20vh 5vh 75vh;
+    grid-template-columns: 10vw 40vw 40vw 10vw;
+    background-color: hsla(230, 40%, 50%, 1);
+}
+
+.GridTitle{
+    grid-row: 1 / 1; 
+    grid-column: 2 / span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.GridInput{
+    grid-row: 2;
+    grid-column: 2 / span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.GridPositive{
+    grid-row: 3;
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.GridNegative{
+    grid-row: 3;
+    grid-column: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.TitleText{
+    display: inline-block;
+    color: white;
+    font-family: 'Righteous', serif;
+    font-size: 2rem;
+    text-shadow: .03rem, .03rem 0 hsla(230, 40%, 50%, 1);
+}
+
+/*
+    serif : 바탕체
+    hsla : (색조, 채도, 밝기, 불투명도)로 색상을 정의하는 방법.
+*/
+.GridInput input{
+    width: 90%;
+    height : auto;
+    font-size: 0.5rem;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.GridInputRadioBox{
+    display: flex;
+}
+
+.GridInput input:focus{
+    outline: none;
+}
+
+.CustomLabelBox{
+    width: 80%;
+    height: 80%;
+    margin: 10%;
+    border-radius: 3%;
+    background-color: white;
+}

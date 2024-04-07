@@ -1,0 +1,28 @@
+.FlexContainer{
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.FlexContainer > h1{
+  border-color: black;
+  border-width: 0.3rem;
+  border-style: dashed;
+  text-align: center;
+}
+
+.ImgBox{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0);
+}
+
+.ImgBox > img{
+  src: "./GunsNRoses.jpg";
+}
+
+@keyframes MyTextAnim {
+  0% {}
+}

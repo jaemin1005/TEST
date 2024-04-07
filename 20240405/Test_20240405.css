@@ -1,0 +1,23 @@
+.TestDiv{
+  width: 100vw;
+}
+
+.TestDiv h1:nth-child(1){
+  color :red
+}
+
+.TestDiv h1:nth-child(2){
+  color : blue
+}
+
+h1:nth-child(3) + h1{
+  color: purple;
+}
+
+h2, h3{
+  color: aquamarine;
+}
+
+h3 ~ p{
+  color : green;
+}

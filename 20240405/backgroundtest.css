@@ -1,0 +1,26 @@
+*{
+  margin : 0;
+  padding: 0;
+}
+
+.FlexContainer{
+  flex-direction: column;
+}
+
+.ImgBox{
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0,0,0,1);
+}
+
+.BgImg{
+  width: inherit;
+  height: inherit;
+
+  position: absolute;
+
+  object-fit: fill;
+  content: url(./GunsNRoses.jpg);
+  z-index: -1;
+}

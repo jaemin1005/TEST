@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+
+
+*, *:left, *::after{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+} 
+
+.GridContainer{
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+   
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 20% 80%;
+}
+
+.GridTitle{
+  grid-row: 1;
+  grid-column: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.GridTitle::before{
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0;
+}
+
+.GridBody{
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.GridLBtn{
+  grid-row: 1 / span 2;
+  grid-column: 1;
+}
+
+.GridRBtn{
+  grid-row: 1 / span 2;
+  grid-column: 3;
+}
+
+.BtnStyle{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  width: 100%;
+  height: 100%;
+}
+
+h1{
+  display : inline-block;
+  color : rgb(27, 21, 21);
+  font-family: 'Righteous', serif;
+  font-size : 3em;
+  text-shadow : .03em .03em 0 hsla (230,40%,50%,1);
+}
+
+/* 
+  * :: after => 선택한 요소의 맨 마지막 자식으로 의사 요소를 하나 생성합니다. 보통 content 속성과 함께 짝 지어, 요소에 장식용 콘텐츠를 추가할 때 사용
+  * contnet => 생성한 값으로 요소를 대체 합니다. content 속성으로 추가한 요소는 "익명 대체 요소" 
+  * position : absolute => 부모의 기준으로 위치를 배치한다.
+  * z-index => Z축 위지 지정 요소이다. 그 자손 또는 하위 아이템의 Z축 순서를 지정, 더 큰 z-index 값이 작은 값을 덮음.
+  * linear-gradient( (방향 또는 각도), (색상 + 정지점), ( 색상 + 정지점 ) ... )
+  * background-clip => (border-box, padding-box, content-box, text) 중 하나를 설정하여 배경이 차지 할 영역을 선택한다.
+  
+  ! Text에 Gradient 주는 법
+  ! background-image 만 단독 사용했을 경우 text에 gradient가 적용되지 않는다. background-clip으로 텍스트의 영역으로 지정, 그리고 text-fill-color을 이용하여 텍스트의 색상을 투명하게 해주자 
+  ! stackoverflow에 color와 text-fill-color의 차이점 ( https://stackoverflow.com/questions/9287552/difference-between-webkit-text-fill-color-and-color )
+*/
+
+/*
+  ! 문제 : 절대적인 위치라서 페이지의 크기에 따라 애니메이션 위치가 변경된다. 
+  TODO : 상대적인 위치로 변환
+  * relative로 변경하면 flex로 인하여 안됨
+*/
+h1:after
+{
+  content : attr(data_shadow);
+  position: absolute;  
+  top: .68em; 
+  left: 5.3rem;
+  z-index: -1;
+  text-shadow: none;
+  background-image: linear-gradient( 45deg, transparent 45%, black 45%, black 55%, transparent 0);
+  background-size: .05em .05em;
+  
+  -webkit-background-clip: text;
+  background-clip:  text;
+  -webkit-text-fill-color: transparent;
+
+  animation: titleTextAnim 15s linear infinite;
+}
+
+/* 
+  * Keyframe : 개발자가 애니메이션 중간중간 특정 지점들을 거칠 수 있는 키프레임들을 설정함으로 써 CSS 애니메이션 과정의 중간 절차를 제어
+  * from ( 0% ) ~ to ( 100 % ) 지정된 시간에서 통과한 시간 중 지정된 키프레임이 발생해야하는 시간의 백분율.
+  ! 만약 한개의 이름에 대해서 여러 개의 keyframe이 존재한다면 파서가 마지막으로 마주치는 키프레임만 유효하다. 
+*/
+@keyframes titleTextAnim {
+    0% { background-position: 0 0 }
+    0% { background-position: 100% -100% }
+}
+

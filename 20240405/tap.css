@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+p + p {
+  color :darkmagenta
+}
+
+p + p + h4{
+  color : red;
+}
+
+p + p + h4 + p{
+  display: inline;
+}
+/* 
+p + p + p{
+  display: inline;
+} 
+*/
+
+.FlexContainer{
+  display: flex;
+}
+
+.FlexTap{
+  display: flex;
+  width: 1vw;
+  height: 100vh;
+  background-color: purple;
+  cursor: pointer;
+}
+
+.FlexBody{
+  display : flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  width: 99.5vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.FlexBody h1{
+  margin: 1rem;
+}
+
+.FlexBody h4{
+  display: inline;
+}
+
+.FlexBody h1 ~ h5{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.FlexColor{
+  display: flex;
+  flex-direction: row;
+}
+
+.RedBox{
+  width: 30vw;
+  height: 11vh;
+  background-color: red;
+}
+
+.GreenBox{
+  width: 30vw;
+  height: 5vh;
+  background-color:green;
+}
+
+.BlueBox{
+  width: 30vw;
+  height: 7vh;
+  background-color: blue;
+}

@@ -1,0 +1,16 @@
+.pick{
+  height: 150px;
+  width:150px;
+  
+  background: #f33;
+  border: #000 1px solid;
+  
+  border-top-left-radius: 60%;
+  border-top-right-radius: 50% 90%;
+  border-bottom-right-radius: 15%;
+  border-bottom-left-radius: 90% 50%;
+  
+  transform: rotate(45deg);
+
+  padding: 10px;
+}
