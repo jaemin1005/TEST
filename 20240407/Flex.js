@@ -1,8 +1,8 @@
 
 let GetKey = OnCompleteLoad();
-window.addEventListener("load", GetKey);
+//window.addEventListener("load", GetKey);
 //window.addEventListener("resize", GetKey);
-
+window.onload += GetKey;
 
 
 function OnCompleteLoad()

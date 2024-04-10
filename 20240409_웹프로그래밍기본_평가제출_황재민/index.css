@@ -1,0 +1,585 @@
+/* 
+  ! 레이아웃부터 그리자.
+  ! Html 화면 비율 맞추기
+*/
+
+/* 
+ * margin, padding 0으로 설정
+ * outline을 그려서 레이아웃의 형태를 확인하게 한다.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  outline-color: gray;
+  outline-width: 0.05rem;
+  outline-style: solid; 
+
+  overflow-x: hidden;
+}
+
+.FlexContainer{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.FlexContainer > div:nth-child(1){
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+  ! 국가 선택하는 블럭
+*/
+.FlexContainer > div:nth-child(1) > div:nth-child(1){
+  width: 100%;
+  min-height: 5vh;
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
+  background-color: #FAFAFC
+}
+
+.FlexContainer > div:nth-child(1) > div:nth-child(1) > div:nth-child(2){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FlexContainer > div:nth-child(1) > div:nth-child(1) > div:nth-child(3){
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+/*
+ ! 각종 Apple 기기 탭 block
+ */
+.FlexContainer > div:nth-child(1) > div:nth-child(2){
+  width: 100%;
+  min-height: 3vh;
+  display : grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  background-color: black;
+}
+
+
+/* 
+* space-around 속성을 이용하여 탭 버튼들을 일정 간격으로 배치할 수 있게 하였다.
+*/
+.FlexContainer > div:nth-child(1) > div:nth-child(2) > div:nth-child(2){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.FlexContainer > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) *{
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: center;
+  color:white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 0.5rem;
+}
+
+/*
+ ! Text block
+ * iPhone 11 이상의 모델을 보상 판매하면 iPhone 15 Pro 구입 시 사용할 수 있는 ₩220.000 ~ ₩990.000 상당의 크레딧이.* 구입하기 
+ */
+.FlexContainer > div:nth-child(1) > div:nth-child(3){
+  width: 100%;
+  min-height: 5vh;
+  display: grid;
+  grid-template-columns: 1fr  2fr 1fr;
+  background-color: #1D1D1F;
+}
+
+/* 
+* Flex을 이용하여 텍스트를 두 줄로 표현하였다. 
+*/
+.FlexContainer > div:nth-child(1) > div:nth-child(3) > div:nth-child(2){
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+! Text
+* iPhone 11 이상의 모델을 보상 판매하면 iPhone 15 Pro 구입 시 사용할 수
+*/
+.FlexContainer > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1){
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+}
+
+/* 
+! Text
+* 있는 ₩220.000 ~ ₩990.000 상당의 크레딧이.* 구입하기
+*/
+.FlexContainer > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2){
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+}
+
+/*
+  ! 아이폰 15pro 메인 사진 block
+  * 3 : 1 : 1 비율로 나눈다
+  * nth:chile(1) : 아이폰 15Pro Img
+
+*/
+.FlexContainer > div:nth-child(1) > div:nth-child(4){
+  width: 100vw;
+  min-height: 89vh;
+  display : grid;
+  grid-template-rows: 3fr 1fr 1fr;
+  background-color: black;
+}
+
+/* 
+ ! iPhone 사진 넣을 공간
+*/
+
+.FlexContainer > div:nth-child(1) > div:nth-child(4) > div:nth-child(1)
+{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/*
+ ! iPhone Pro Img 
+ * object-fit 속성을 이용하여, 가로세로 비율 유지한채 이미지를 넣는다
+ * 뒷 배경이 검은색이기 때문에 빈 공간이 생겨도 상관이 없음
+*/
+.FlexContainer > div:nth-child(1) > div:nth-child(4) > div:nth-child(1) img{
+  min-height: 50%;
+  object-fit: cover;
+}
+
+.FlexContainer > div:nth-child(1) > div:nth-child(4) > div:nth-child(2){
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end
+}
+
+/* 
+  ! 구입하기 버튼 이미지
+  * height를 이용하여 버튼의 크기를 조절하였음 :) Good 
+*/
+.FlexContainer > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) img {
+  width: 10%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 
+  ! ₩1,550,000부터 Text의 Block
+  * paading-top을 이용하여 '구입하기 버튼' 과 일정 간격을 설정한다. 
+*/
+.FlexContainer > div:nth-child(1) > div:nth-child(4) > div:nth-child(3){
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.FlexContainer > div:nth-child(1) > div:nth-child(4) > div:nth-child(3) div{
+  color : white
+}
+
+/*
+ !!! 2th Page !!! 
+*/
+
+.FlexContainer > div:nth-child(2){
+  background-color: #101010;
+  width: 100vw;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: 1fr 5fr 1fr;
+}
+
+.FlexContainer > div:nth-child(2) > div:nth-child(1){
+  grid-row: 1;
+  grid-column: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.FlexContainer > div:nth-child(2) > div:nth-child(1) > div:nth-child(1){
+  color: #86868B;
+  font-size: 2rem;
+}
+
+.FlexContainer > div:nth-child(2) > div:nth-child(1) > div:nth-child(2){
+  display: flex;
+}
+
+.FlexContainer > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) a{
+  color: skyblue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.FlexContainer > div:nth-child(2) > div:nth-child(2)
+{
+  grid-row: 2;
+  grid-column: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3%;
+}
+
+.FlexContainer > dic:nth-child(2) > div:nth-child(2) > div{
+  width: 90%;
+  height: auto;
+}
+
+.FlexContainer > div:nth-child(2) > div:nth-child(2) img{
+  width: 1280px;
+  height: 680px;
+
+  background-color: black;
+  object-fit: contain;
+}
+
+/* 
+  * Text 설정 
+  * 폰트 크기를 em으로 설정하여 div에 맞게 크기를 변경한다.
+*/
+.FlexContainer > div:nth-child(2) > div:nth-child(2) div div{
+  margin-left: 5%;
+  width: 100%;
+  height: auto;
+  font-size: 1em;
+  color:white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  line-height: 2em;
+
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+/*
+  !!! 3th Page !!!
+ */
+  .FlexContainer > div:nth-child(3){
+    width: 100vw;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+  }
+
+  .FlexContainer > div:nth-child(3) > div:nth-child(1){
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: row;
+  }
+
+  .FlexContainer > div:nth-child(3) > div:nth-child(1) div{
+    width: 50%;
+    min-height: 20vh;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .FlexContainer > div:nth-child(3) > div:nth-child(1) div > div:nth-child(1){
+    width: fit-content;
+    font-size: 2rem;
+    color: #86868B;
+    margin : 2rem
+  }
+
+  .FlexContainer > div:nth-child(3) > div:nth-child(2){
+    width: 100%;
+    min-height: 80vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .FlexContainer > div:nth-child(3) > div:nth-child(2) > div:nth-child(1)
+  {
+    width: fit-content;
+    max-height: max-content;
+  }
+
+  .FlexContainer > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > img{
+    width: 800px;
+    height: 400px;
+
+    background-color: gray;
+    object-fit: cover;
+  }
+
+  /* 
+   !!! 4th Page !!!
+  */
+
+
+  .FlexContainer > div:nth-child(4)
+  {
+    padding: 5%;
+
+    width: calc(100vw - 10%);
+    min-height: 120vh;
+    /* max-height: 150vh; */
+    height: 0vh;
+    background-color: #101010;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+.FlexContainer > div:nth-child(4) > div:nth-child(1)
+  {
+    width: 100%;
+    height: 20%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+.FlexContainer > div:nth-child(4) > div:nth-child(1) > div:nth-child(1)
+  {
+    font-size: 3rem;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+.FlexContainer > div:nth-child(4) > div:nth-child(2){
+  width: 100%;
+  height: 80%;
+
+  display : grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 2fr 2fr 0.5fr;
+}  
+
+.FlexContainer > div:nth-child(4) > div:nth-child(2) div{
+  padding: 1vw;
+}
+
+.FlexContainer > div:nth-child(4) > div:nth-child(2) > div:nth-child(1)
+{
+  grid-row: 1;
+  grid-column: 1 / span 2
+}
+
+.FlexContainer > div:nth-child(4) > div:nth-child(2) > div:nth-child(2)
+{
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.FlexContainer > div:nth-child(4) > div:nth-child(2) > div:nth-child(3)
+{
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.FlexContainer > div:nth-child(4) > div:nth-child(2) > div:nth-child(4)
+{
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.FlexContainer > div:nth-child(4) > div:nth-child(2) > div:nth-child(5)
+{
+  grid-row: 3;
+  grid-column: 2;
+}
+
+.FlexContainer > div:nth-child(4) > div:nth-child(2) > div:nth-child(6)
+{
+  grid-row: 4;
+  grid-column: 1 / span 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FlexContainer > div:nth-child(4) > div:nth-child(2) > div:nth-child(6) > div:nth-child(1)
+{
+  width: 50%;
+  height: 70%;
+}
+
+/*
+ !!! 5th Page !!!
+*/
+
+/* 
+ * Column으로 가운데 정렬 
+ * 중앙으로 배치후, 중간 중간 Flex-direction만 수정해주면 될듯
+*/
+.FlexContainer > div:nth-child(5){
+  display: flex;
+  flex-direction: column;
+  min-height: 150vh;
+  height: 0;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: black;
+}
+
+
+.FlexContainer > div:nth-child(5) div
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FlexContainer > div:nth-child(5) > div:nth-child(1) {
+  width: 100%;
+  flex-grow: 0.5;
+}
+
+.FlexContainer > div:nth-child(5) > div:nth-child(1) > div:nth-child(1)
+{
+  min-width: 30%;
+  min-height: 90%;
+}
+
+.FlexContainer > div:nth-child(5) > div:nth-child(2)
+{
+  width: 100%;
+  flex-grow: 1;
+}
+
+.FlexContainer > div:nth-child(5) > div:nth-child(2) > div:nth-child(1){
+  width: 30%;
+  height: 80%;
+}
+
+
+.FlexContainer > div:nth-child(5) > div:nth-child(3){
+  width: 100%;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.FlexContainer > div:nth-child(5) > div:nth-child(3) div{
+  font-size: 3rem;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.FlexContainer > div:nth-child(5) > div:nth-child(4){
+  width: 100%;
+  flex-grow: 1;
+  align-items: flex-start;
+}
+
+
+.FlexContainer > div:nth-child(5) > div:nth-child(4) > div:nth-child(1)
+{
+  width: 50%;
+  height: 80%;
+}
+
+
+.FlexContainer > div:nth-child(5) > div:nth-child(5){
+  width: 100%;
+  flex-grow: 2;
+}
+
+.FlexContainer > div:nth-child(5) > div:nth-child(5) > div:nth-child(1){
+  width: 60%;
+  height: 80%;
+}
+
+.FlexContainer > div:nth-child(5) > div:nth-child(6)
+{
+  width: 100%;
+  flex-grow: 2;
+  align-items: flex-start;
+}
+
+.FlexContainer > div:nth-child(5) > div:nth-child(6) > *{
+  width: 30%;
+  height: 80%;/* aspect-ratio: 4 / 3; */
+}
+
+/* 
+ !!! 6th Page !!!
+*/
+
+/* 
+ * section 태그를 사용하여 영역을 나타낸다 :) 
+ * width 100vw
+ * 모든 길이를 vw를 기준으로 잡아본다.
+ * 이 페이지는 이미지 비율을 최대한 유지할 수 있도록 작성해본다. 
+*/
+
+.FlexContainer .SubSection{
+  
+  /* 고정적으로 바텀 padding 픽셀을 설정?? 왜 */
+  /* 해당 값은 미디어 쿼리에 의해 바뀐다. Hmm */
+  --global-spacing-section-padding : 140px;
+  --global-spacing-section-padding-bottom-aap: 210px;
+
+
+  --global-spacing-subsection-padding-bottom : 206px; 
+
+
+  position: relative;
+  z-index: 1;
+
+  padding-top: var(--global-spacing-section-padding);
+  padding-bottom: var(--global-spacing-subsection-padding-bottom);
+}
+
+.ViewportContent{
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  width: 692px;
+}
+
+.FlexContainer > section:nth-child(1)
+{
+
+
+  width:  100vw;
+  height: auto;
+  min-height: 100vw;
+}
+

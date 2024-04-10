@@ -1,0 +1,26 @@
+.Container{
+  border: 1px solid black;
+  overflow: auto;
+}
+
+.left
+{
+  width: 45%;
+  float: left;
+}
+
+.right{
+  width: 30%;
+  float: right;
+}
+
+/*
+.Container::before, .Container::after{
+  content: " ";
+  display: table;
+}
+
+.Container::after{
+  clear:both;
+}
+*/
