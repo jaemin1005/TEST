@@ -1,0 +1,449 @@
+*{
+  outline: 1px solid black;
+  padding: 0;
+  margin: 0;
+}
+
+main{
+  box-sizing: border-box;
+}
+
+/* 
+ * 테스트 테마
+*/
+.TestTheme{
+  --test-background-color : grey;
+  --test-img-background-corlor : yellow;
+  --test-background-Num2-color : black;
+}
+
+.TapTextSize{
+  --tap-font-size : max(10px, 1rem);
+}
+
+.SmallFontSize{
+  font-size: max(5px, 1rem);
+}
+
+.BigFontSize{
+  font-size: max(15px, 2rem);
+  font-weight: bold;
+}
+
+.BBigFontSize{
+  font-size: max(15px, 3rem);
+  font-weight: bold;
+}
+
+.MainFontSize{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.TextAlignCenter{
+  text-align: center;
+}
+
+.TestFont
+{
+  --tap-font-color : black;
+  --tap-font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  font-family: var(--tap-font-family);
+  color : var(--tap-font-color);
+}
+
+
+.MainSection{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10vh;
+  position: relative;
+  z-index: 1;
+}
+
+.MarginCenter{
+  margin: 0 auto;
+}
+
+.TestImg{
+  width: 100%;
+  height: 100%;
+
+  object-fit :contain; 
+  background-color: var(--test-background-color);
+}
+
+.ImageWrapper{
+  width: 100%;
+}
+
+.ImageWrapper1_1{
+  aspect-ratio: 1 / 1;
+}
+
+.ImageWrapper16_9{
+  aspect-ratio: 16 / 9;
+}
+
+.DetailBtn{
+  
+  margin: 2vh auto;
+
+  height: 3vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.DetailBtn > div{
+
+  margin-left: 1vw;
+  width: 2vw;
+  height: 2vw;
+
+  border-radius: 50%;
+}
+
+
+
+
+/* 
+ !!! Section 1 !!!!
+ */
+
+
+ /* 
+  * SearchBar는 고유 디자인이라서 Id 식별자로 설정하였다.
+ */
+#SearchBar{
+
+  --px-searchbar-width : 1024px;
+  --vw-searchbar-width : 60vw; 
+
+  --px-searchbar-height : 30px;
+  --vh-searchbar-height : 5vh;
+
+  margin: min(1px, 2vh) auto;
+  
+  width: max(var(--px-searchbar-width), var(--vw-searchbar-width));
+  height: max(var(--px-searchbar-height), var(--vh-searchbar-height));
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+#SearchBar  h5{
+  overflow: hidden;
+  width: 50%;
+  height: 100%;
+  color : black
+}
+
+#SearchBar > div{
+  width: 50%;
+  height: 100%;
+  display: flex;;
+}
+
+#SearchBar > div div{
+  background-color: var(--test-background-color);
+  margin : min(5px, 2%);
+}
+
+#SearchBar > div > div:nth-child(1){
+  flex-grow: 7;
+}
+
+#SearchBar > div > div:nth-child(2){
+  flex-grow: 2;
+}
+
+#SearchBar > div > div:nth-child(3){
+  flex-grow: 1;
+}
+
+/* 
+ * Nav 영역과 각 아이템의 설정
+*/
+#SearchBar + nav > ul{
+  --px-min-icon-height : 44px;
+  --vh-min-icon-height : 3.7vh;
+
+  --px-min-icon-width : 23px;
+  --vw-min-icon-width : 2vw;
+
+  --px-margin-icon-width : 60px;
+  --vw-margin-icon-width : 5vw;
+
+  box-sizing: content-box;
+}
+
+#SearchBar + nav > ul > li{
+
+  background-color: var(--test-background-color);
+  display: inline-block;
+}
+
+#SearchBar + nav > ul > li > span {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.TextRogoWrapper{
+  padding-top : 1.2rem;
+  padding-bottom: 1.2rem;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+/* 
+  * iPhone 15 pro 그림을 담당하는 영역
+*/
+#TitanumMain{
+  min-height: 90vh;
+  position: relative;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  z-index: 2;
+}
+
+#TitanumMain > div{
+  width: 100%;
+}
+
+#TitanumMain > div:nth-child(1)
+{
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#TitanumMain > div:nth-child(1) > img
+{
+  width: 60%;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+
+#TitanumMain > div:nth-child(2)
+{
+  display: flex;
+  flex-direction: column;
+}
+
+#TitanumMain > div:nth-child(2) > div{
+  flex-grow: 1;
+  display: flex; 
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#TitanumMain > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)
+{
+  width: max(97.7px, 10%);
+  height: max(44px, 5vh);
+  border-radius: 10%;
+}
+
+/* 
+ !!! Section 2 !!!
+*/
+
+.DetailGrid{
+  display: grid;
+  
+  grid-template-rows: 20vh auto;
+  grid-template-columns: 5vw 90vw 90vw;
+
+  row-gap: 5vh;
+  column-gap: 1vw;
+}
+
+.DetailGrid > div:nth-child(1)
+{
+  grid-row: 1;
+  grid-column: 2;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.DetailGrid > div:nth-child(1) > div:nth-child(2)
+{
+  display: flex;
+}
+
+.DetailGrid > div:nth-child(2) 
+{
+  grid-row: 2;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.DetailGrid > div:nth-child(3)
+{
+  grid-row: 2;
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.ImageWrapper > img
+{
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: var(--test-background-color)
+}
+
+/* 
+  !!! Section 3 !!! 
+*/
+
+main > .MainSection:nth-child(3) > .DetailGrid > div:nth-child(2)
+{
+  grid-row : 2;
+  grid-column: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main > .MainSection:nth-child(3) > .DetailGrid  > div:nth-child(2) > img
+{
+  margin-top: 5vh;
+  width: 60%;
+  aspect-ratio: 16/9;
+  margin-bottom: 5vh;
+  background-color: var(--test-background-color)
+}
+
+main > .MainSection:nth-child(3) > .DetailGrid  > div:nth-child(2) > div:nth-child(3)
+{
+
+  width: 10%;
+  height: 5%;
+  border-radius: 15%;
+  margin-bottom: 5vh;
+}
+
+/*
+  !!! section 4 !!!
+*/
+.MainSection:nth-child(4) > .DetailGrid > div:nth-child(2)
+{
+  padding-top: 5vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-bottom: 5vh;
+}
+
+
+.MainSection:nth-child(4) > .DetailGrid > div:nth-child(2) > div:nth-child(1)
+{ 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.MainSection:nth-child(4) > .DetailGrid > div:nth-child(2) > div:nth-child(2)
+{
+  width: 100%;
+  height: auto;
+  display: grid;
+  
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1vw;
+  aspect-ratio: 1 / 1;
+}
+
+.MainSection:nth-child(4) > .DetailGrid > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)
+{
+  grid-row: 1;
+  grid-column: 1 / span 2;
+}
+
+.MainSection:nth-child(4) > .DetailGrid > div:nth-child(2) > div:nth-child(2) > div > img
+{
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--test-background-color);
+}
+
+.MainSection:nth-child(4) > .DetailGrid > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)
+{
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.MainSection:nth-child(4) > .DetailGrid > div:nth-child(2) > div:nth-child(2) > div:nth-child(3)
+{
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.MainSection:nth-child(4) > .DetailGrid > div:nth-child(2) > div:nth-child(3)
+{
+  margin-top: 1vw;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1vw;
+}
+
+.MainSection:nth-child(4) > .DetailGrid > div:nth-child(2) > div:nth-child(3) > div
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 
+ !!! Section 5 !!!
+*/
+
+.SubSection{
+  width: 100%;
+
+  margin-top: 5vh;
+  margin-left : 2.5vw;
+  margin-right: 2.5vw;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.MainSection:nth-child(5) > .SubSection > div:nth-child(2){
+  width: 10%;
+  height: 10%;
+
+  margin-bottom: 2vh;
+}
+
+.MainSection:nth-child(5) > .SubSection > div:nth-child(5)
+{
+  width: 40%;
+}

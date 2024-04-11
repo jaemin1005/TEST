@@ -4,6 +4,13 @@
 */
 
 /* 
+ * 전역 변수 관리
+*/
+:root{
+ --global-spacing-headline-to-subhead: 40px;
+}
+
+/* 
  * margin, padding 0으로 설정
  * outline을 그려서 레이아웃의 형태를 확인하게 한다.
 */
@@ -572,12 +579,29 @@
   margin-inline-start: auto;
   margin-inline-end: auto;
   width: 692px;
+  position: relative;
 }
+
+.OverFlowHidden{
+  overflow: hidden;
+}
+
+/* 
+ * 클리어 픽스
+ */
+.ViewportContent::before,
+.ViewportContent::after{
+  content: " ";
+  display: table;
+}
+
+.ViewportContent::after{
+  clear: both;
+}
+
 
 .FlexContainer > section:nth-child(1)
 {
-
-
   width:  100vw;
   height: auto;
   min-height: 100vw;
