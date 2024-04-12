@@ -4,8 +4,13 @@
   margin: 0;
 }
 
+body{
+  overflow-x: hidden; 
+}
+
 main{
   box-sizing: border-box;
+  width: 100vw;
 }
 
 /* 
@@ -15,23 +20,52 @@ main{
   --test-background-color : grey;
   --test-img-background-corlor : yellow;
   --test-background-Num2-color : black;
+  --test-background-transparent : rgba(0,0,0,0);
 }
 
 .TapTextSize{
   --tap-font-size : max(10px, 1rem);
 }
 
+.DetailGrid{
+  display: grid;
+  
+  grid-template-rows: 20vh auto;
+  grid-template-columns: 5vw 90vw 90vw;
+
+  row-gap: 5vh;
+  column-gap: 1vw;
+}
+
+.TextRogoWrapper{
+  padding-top : 1.2rem;
+  padding-bottom: 1.2rem;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.TextSmallWrapper{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .SmallFontSize{
-  font-size: max(5px, 1rem);
+  font-size: 1rem;
 }
 
 .BigFontSize{
-  font-size: max(15px, 2rem);
+  font-size: 2rem;
   font-weight: bold;
 }
 
 .BBigFontSize{
-  font-size: max(15px, 3rem);
+  font-size: 3rem;
   font-weight: bold;
 }
 
@@ -53,13 +87,36 @@ main{
   color : var(--tap-font-color);
 }
 
-
+/* 
+ * MainSection
+ * 한 단락마다 MainSection으로 구분함.
+*/
 .MainSection{
   display: flex;
   flex-direction: column;
-  margin-bottom: 10vh;
   position: relative;
   z-index: 1;
+}
+
+.SubSection{
+
+  --margin-width-vw : 20vw;
+  
+  width: 100%;
+  margin-top: 5vh;
+  margin-left : 2.5vw;
+  margin-right: 2.5vw;
+  padding-bottom: 5vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+main > .MainSection:not(:nth-child(1))
+{
+  margin-top: 20vh;
 }
 
 .MarginCenter{
@@ -74,16 +131,42 @@ main{
   background-color: var(--test-background-color);
 }
 
+.TestImgTransparent{
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  background-color: var(--test-background-transparent);
+}
+
+
 .ImageWrapper{
   width: 100%;
 }
 
 .ImageWrapper1_1{
+  width: 100%;
   aspect-ratio: 1 / 1;
 }
 
 .ImageWrapper16_9{
+  width: 100%;
   aspect-ratio: 16 / 9;
+}
+
+.ImageWrapper9_4{
+  width: 100%;
+  aspect-ratio: 9 / 4;
+}
+
+.ImageWrapper1_2{
+  width: 100%;
+  aspect-ratio: 1 / 2;
+}
+
+.ImageWrapper2_1{
+  width: 100%;
+  aspect-ratio: 2 / 1;
 }
 
 .DetailBtn{
@@ -107,8 +190,19 @@ main{
   border-radius: 50%;
 }
 
+.TwoColumnText{
+  margin-top: 1vw;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1vw;
+}
 
-
+.TwoColumnText > div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* 
  !!! Section 1 !!!!
@@ -128,8 +222,8 @@ main{
 
   margin: min(1px, 2vh) auto;
   
-  width: max(var(--px-searchbar-width), var(--vw-searchbar-width));
-  height: max(var(--px-searchbar-height), var(--vh-searchbar-height));
+  width: min(var(--px-searchbar-width), var(--vw-searchbar-width));
+  height: min(var(--px-searchbar-height), var(--vh-searchbar-height));
   
   display: flex;
   align-items: center;
@@ -195,14 +289,7 @@ main{
   align-content: center;
 }
 
-.TextRogoWrapper{
-  padding-top : 1.2rem;
-  padding-bottom: 1.2rem;
 
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
 
 /* 
   * iPhone 15 pro 그림을 담당하는 영역
@@ -266,16 +353,6 @@ main{
  !!! Section 2 !!!
 */
 
-.DetailGrid{
-  display: grid;
-  
-  grid-template-rows: 20vh auto;
-  grid-template-columns: 5vw 90vw 90vw;
-
-  row-gap: 5vh;
-  column-gap: 1vw;
-}
-
 .DetailGrid > div:nth-child(1)
 {
   grid-row: 1;
@@ -306,14 +383,6 @@ main{
   display: flex;
   flex-direction: column;
 }
-
-.ImageWrapper > img
-{
-  width: 100%;
-  aspect-ratio: 16/9;
-  background-color: var(--test-background-color)
-}
-
 /* 
   !!! Section 3 !!! 
 */
@@ -403,36 +472,14 @@ main > .MainSection:nth-child(3) > .DetailGrid  > div:nth-child(2) > div:nth-chi
   grid-column: 2;
 }
 
-.MainSection:nth-child(4) > .DetailGrid > div:nth-child(2) > div:nth-child(3)
-{
-  margin-top: 1vw;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 1vw;
-}
 
-.MainSection:nth-child(4) > .DetailGrid > div:nth-child(2) > div:nth-child(3) > div
-{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 /* 
  !!! Section 5 !!!
 */
 
-.SubSection{
-  width: 100%;
-
-  margin-top: 5vh;
-  margin-left : 2.5vw;
-  margin-right: 2.5vw;
-
-  display: flex;
-  flex-direction: column;
-
+main > .MainSection:nth-child(5)
+{
   align-items: center;
 }
 
@@ -445,5 +492,282 @@ main > .MainSection:nth-child(3) > .DetailGrid  > div:nth-child(2) > div:nth-chi
 
 .MainSection:nth-child(5) > .SubSection > div:nth-child(5)
 {
-  width: 40%;
+  width: 60%;
 }
+
+.MainSection:nth-child(5) .TwoColumnText{
+  column-gap: 1rem;
+}
+
+.MainSection:nth-child(5) .TwoColumnText > div
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.MainSection:nth-child(5) .TwoColumnText > div:nth-child(1)
+{
+  align-items: flex-end;
+}
+
+.MainSection:nth-child(5) .TwoColumnText > div:nth-child(2)
+{
+  align-items: flex-start;
+}
+
+/*
+ !!! Section 6 !!!
+*/
+
+.MainSection:nth-child(6)
+{
+  align-items: center;
+}
+
+.MainSection:nth-child(6) > .SubSection:nth-child(1)
+{
+  --section-six-margin-left-vw : 10vw; 
+
+  width: calc(100% - var(--section-six-margin-left-vw));
+  align-items: flex-start;
+}
+
+.MainSection:nth-child(6) > .SubSection:nth-child(1) > .TextRogoWrapper
+{
+  margin-top: 5rem;
+  margin-left: var(--section-six-margin-left-vw);
+}
+
+.MainSection:nth-child(6) > .SubSection:nth-child(1) > .TextSmallWrapper{
+  margin-left: var(--section-six-margin-left-vw);
+}
+
+.MainSection:nth-child(6) > .SubSection:nth-child(1) > .ImageWrapper16_9{
+  margin-top: 2vh;
+  width: 100%;
+  margin-left: var(--section-six-margin-left-vw);
+}
+
+.MainSection:nth-child(6) > section:nth-child(2)
+{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 32vw 32vw 32vw;
+  grid-template-rows: 1fr 1fr auto;
+  column-gap: 2vw;
+  row-gap: 5vh;
+}
+
+.MainSection:nth-child(6) > section:nth-child(2) > div:nth-child(1)
+{
+  grid-column: 2;
+  grid-row: 1;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.MainSection:nth-child(6) > section:nth-child(2) > div:nth-child(1) > .TextSmallWrapper
+{
+  justify-content: flex-start;
+}
+
+/* 
+ * 3가지의 이미지 영역
+ * Previous, Current, Next  
+ * 이미지의 간격은 row-gap으로 해결하자
+*/
+
+.MainSection:nth-child(6) > section:nth-child(2) > div
+{
+  height: 100%;
+}
+
+.MainSection:nth-child(6) > section:nth-child(2) > div:nth-child(2)
+{
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.MainSection:nth-child(6) > section:nth-child(2) > div:nth-child(3)
+{
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.MainSection:nth-child(6) > section:nth-child(2) > div:nth-child(4)
+{
+  grid-column: 3;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.MainSection:nth-child(6) > section:nth-child(2) > div:nth-child(5)
+{
+  margin-top: 10vh;
+  height: auto;
+  grid-row: 3;
+  grid-column: 2 / span 2;
+
+  display: grid;
+  grid-template-columns: 1.3fr 3fr;
+  column-gap: 4vw;
+}
+
+
+.MainSection:nth-child(6) > section:nth-child(2) > div:nth-child(5) > .TextSmallWrapper
+{
+  justify-content: flex-start;
+}
+
+.MainSection:nth-child(6) > section:nth-child(2) > div:nth-child(5) > .TextSmallWrapper > .TestFont
+{
+  display: flex;
+  align-items: center;
+}
+
+.MainSection:nth-child(6) > div:nth-child(3)
+{
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  width: 50%;
+} 
+
+.MainSection:nth-child(6) > .TextRogoWrapper:nth-child(4)
+{
+  margin: 0 auto;
+}
+
+/*
+ !!! Section 7 !!! 
+*/
+
+.MainSection:nth-child(7)
+{
+  align-items: center;
+}
+
+.MainSection:nth-child(7) > .SubSection > .TextRogoWrapper:nth-child(2)
+{
+  margin-top: 5vh;
+}
+
+.MainSection:nth-child(7) > .SubSection > div:nth-child(3)
+{
+  margin-top: 5vh;
+  width: 60%;
+}
+
+.MainSection:nth-child(7) .TwoColumnText{
+  column-gap: 1rem;
+}
+
+.MainSection:nth-child(7) .TwoColumnText > div
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.MainSection:nth-child(7) .TwoColumnText > div:nth-child(1)
+{
+  align-items: flex-end;
+}
+
+.MainSection:nth-child(7) .TwoColumnText > div:nth-child(2)
+{
+  align-items: flex-start;
+}
+
+/* 
+ !!! section 8 !!!
+*/
+
+.MainSection:nth-child(8) > .SubSection:nth-child(1)
+{
+  width: auto;
+  margin-left: var(--margin-width-vw);
+  margin-right: var(--margin-width-vw);
+
+  align-items: flex-start;
+}
+
+.MainSection:nth-child(8) > .SubSection:nth-child(1) > div:nth-child(2)
+{
+  width: 100%;
+  display: flex;
+}
+
+.MainSection:nth-child(8) > .SubSection:nth-child(1) > div:nth-child(2) > div:nth-child(1)
+{
+  width: 50%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.MainSection:nth-child(8) > .SubSection:nth-child(1) > div:nth-child(2) > div:nth-child(1) > .TextSmallWrapper{
+  justify-content: flex-start;
+}
+
+.MainSection:nth-child(8) > .SubSection:nth-child(1) > div:nth-child(2) > div:nth-child(2)
+{
+  width: 50%;
+  flex-grow: 1;
+} 
+
+.MainSection:nth-child(8) > .SubSection:nth-child(1) > .TextRogoWrapper:nth-child(5){
+  margin-top: 5vh;
+  margin-left: 3vw;
+}
+
+.MainSection:nth-child(8) > .SubSection:nth-child(1) > .TwoColumnText:nth-child(7) > div:nth-child(2){
+  align-items: flex-start;
+}
+
+/* 
+ !!! section 9 !!!
+*/
+
+.MainSection:nth-child(9) > .SubSection:nth-child(1)
+{
+  width: auto;
+  margin-left: var(--margin-width-vw);
+  margin-right: var(--margin-width-vw);
+}
+
+.MainSection:nth-child(9) > .SubSection:nth-child(1) > .TextRogoWrapper:nth-child(2) > .TestFont
+{
+  text-align: center;
+}
+
+
+.MainSection:nth-child(9) > .SubSection:nth-child(1) > .TwoColumnText:nth-child(5)
+{
+  width: auto;
+}
+
+.MainSection:nth-child(9) > .SubSection:nth-child(1) > .TwoColumnText:nth-child(5) > div
+{
+  align-items: flex-start;
+}
+
+.MainSection:nth-child(9) > .SubSection:nth-child(1) > .TwoColumnText:nth-child(5) > div:nth-child(2) > div:nth-child(2)
+{
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+  width: 100%
+}
+
+.MainSection:nth-child(9) > .SubSection:nth-child(1) > .TwoColumnText:nth-child(5) > div:nth-child(2) > div:nth-child(3){
+  display: grid;
+  grid-template-columns: 3vw auto;
+  column-gap: 1vw;
+}
+

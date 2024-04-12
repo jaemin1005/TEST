@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- 이러한 방식은 디자이너의 마크업 방식 :) -->
+<!-- <style>
+  body > div > hi {
+    color : pink
+  }
+</style> -->
+<body>
+  <!-- ? root는 Body를 대체할 부모요소 React에서 이렇게 활용한다. -->
+  <div id="root">
+    <h1>공욱재</h1>
+  </div>
+  <script>
+    let domTagH1 = document.getElementsByTagName('h1')[0];
+    
+    window.console.log(domTagH1);
+    domTagH1.innerText = "Yea";
+    domTagH1.style.color = "pink";
+    domTagH1.style.backgroundColor="blue";
+  </script>
+</body>
+</html>
