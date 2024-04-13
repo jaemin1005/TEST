@@ -5,12 +5,13 @@
 }
 
 body{
-  overflow-x: hidden; 
+  /* overflow-x: hidden;  */
 }
 
 main{
   box-sizing: border-box;
   width: 100vw;
+  overflow: hidden;
 }
 
 /* 
@@ -21,6 +22,7 @@ main{
   --test-img-background-corlor : yellow;
   --test-background-Num2-color : black;
   --test-background-transparent : rgba(0,0,0,0);
+  --test-line-color : red
 }
 
 .TapTextSize{
@@ -30,11 +32,20 @@ main{
 .DetailGrid{
   display: grid;
   
-  grid-template-rows: 20vh auto;
-  grid-template-columns: 5vw 90vw 90vw;
+  grid-template-rows: auto auto;
+  grid-template-columns: 5vw 90vw auto;
 
   row-gap: 5vh;
   column-gap: 1vw;
+}
+
+.TextBigWrapper{
+  padding-top : 3rem;
+  padding-bottom: 3rem;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .TextRogoWrapper{
@@ -55,8 +66,17 @@ main{
   align-content: center;
 }
 
+.SSmallFontSize{
+  font-size: 0.7rem;
+}
+
 .SmallFontSize{
   font-size: 1rem;
+}
+
+.SmallPlusFontSize
+{
+  font-size: 1.2rem;
 }
 
 .BigFontSize{
@@ -116,7 +136,7 @@ main{
 
 main > .MainSection:not(:nth-child(1))
 {
-  margin-top: 20vh;
+  padding-top: 20vh;
 }
 
 .MarginCenter{
@@ -142,6 +162,7 @@ main > .MainSection:not(:nth-child(1))
 
 .ImageWrapper{
   width: 100%;
+  height: 100%;
 }
 
 .ImageWrapper1_1{
@@ -151,6 +172,12 @@ main > .MainSection:not(:nth-child(1))
 
 .ImageWrapper16_9{
   width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.ImageWrapper16_9Height{
+  width: max-content;
+  height: 100%;
   aspect-ratio: 16 / 9;
 }
 
@@ -172,7 +199,6 @@ main > .MainSection:not(:nth-child(1))
 .DetailBtn{
   
   margin: 2vh auto;
-
   height: 3vh;
 
   display: flex;
@@ -204,6 +230,10 @@ main > .MainSection:not(:nth-child(1))
   align-items: center;
 }
 
+.TestBtn{
+  width: 3vw;
+  height: 3vw;
+}
 /* 
  !!! Section 1 !!!!
  */
@@ -712,6 +742,27 @@ main > .MainSection:nth-child(5)
   flex-direction: column;
 }
 
+/* 
+ * 2024.04.12
+ TODO : 임의 버튼 만들기 
+*/
+.MainSection:nth-child(8) > .SubSection:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)
+{
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.MainSection:nth-child(8) > .SubSection:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div
+{
+  width: auto;
+  display: flex;
+}
+
+
 .MainSection:nth-child(8) > .SubSection:nth-child(1) > div:nth-child(2) > div:nth-child(1) > .TextSmallWrapper{
   justify-content: flex-start;
 }
@@ -771,3 +822,256 @@ main > .MainSection:nth-child(5)
   column-gap: 1vw;
 }
 
+/* 
+ !!! Section 10 !!!
+*/
+
+.MainSection:nth-child(10)
+{
+  --btn-margin-vh : 5vh;
+  --center-padding-vw : 8vw;
+  --center-padding-vh : 5vh;
+
+  --line-margin-vh : 3vh;
+}
+
+.MainSection:nth-child(10) > .SubSection:nth-child(1)
+{
+  width: auto;
+  margin: 0 var(--margin-width-vw);
+}
+
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div
+{
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5vh;
+}
+
+/* 
+ * Margin을 이용한 각 아이템들 간격조절
+*/
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div:nth-child(1) > div:nth-child(2)
+{
+  margin-top: 3vh;
+  margin-bottom: 5vh;
+}
+
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div:nth-child(2)
+{
+  padding-top: var(--center-padding-vh);
+  padding-left: var(--center-padding-vw);
+  padding-right: var(--center-padding-vw);
+}
+
+/* 
+ * 이미지 담을 공간 설정
+*/
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div:nth-child(2) > div:nth-child(1)
+{
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  column-gap: 1vw;
+}
+
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div:nth-child(2) > .TextRogoWrapper:nth-child(2)
+{
+  justify-content: flex-start;
+}
+
+/* 
+ * 구분선
+*/
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div:nth-child(2) > div:nth-child(3)
+{
+  width: 100%;
+  margin : var(--line-margin-vh) 0;
+  outline: 1px solid black;
+}
+
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div:nth-child(2) > .TwoColumnText:nth-child(4)
+{
+  margin-top: 0;
+  margin-bottom: 7vh;
+}
+
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div:nth-child(2) > .TwoColumnText:nth-child(4) > div:nth-child(2)
+{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  align-items: flex-start;
+}
+
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div:nth-child(2) > .TwoColumnText:nth-child(4) > div:nth-child(2) > div:nth-child(1)
+{
+  grid-column: 2 / span 3;
+}
+
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div:nth-child(3)
+{
+  padding-top: var(--center-padding-vh);
+  padding-left: var(--center-padding-vw);
+  padding-right: var(--center-padding-vw);
+}
+
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div:nth-child(3) > .TextSmallWrapper
+{
+  justify-content: start;
+}
+
+.MainSection:nth-child(10) > .SubSection:nth-child(1) > div:nth-child(3) > div:nth-child(3)
+{
+  margin-top: var(--line-margin-vh);
+  margin-bottom: var(--line-margin-vh);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 2vw;
+  row-gap: 4vh;
+}
+
+/* 
+ !!! section 11 !!!
+*/
+
+.TestOutline{
+  margin-bottom: 1.2rem;
+  outline: 1px solid var(--test-line-color);
+}
+
+.MainSection:nth-child(11) > .DetailGrid > div:nth-child(2)
+{
+  box-sizing: border-box;
+  padding-bottom:  10vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.MainSection:nth-child(11) > .DetailGrid > div:nth-child(2) > div
+{
+  width: 100%;
+  height: 100%;
+}
+
+.MainSection:nth-child(11) > .DetailGrid > div:nth-child(2) > div> div
+{
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 
+ !!! section 12 !!!
+*/
+
+.MainSection:nth-child(12) > .DetailGrid:nth-child(1) > div:nth-child(2)
+{
+  width: 100%;
+
+  grid-row: 2;
+  grid-column: 1 / span 3;
+
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 2vw;
+}
+
+.MainSection:nth-child(12) > .DetailGrid:nth-child(1) > div:nth-child(2) > div
+{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  aspect-ratio: 1 / 1;
+  padding-top: 18%;
+  background-color: var(--test-background-color);
+}
+
+.MainSection:nth-child(12) > .DetailGrid:nth-child(1) > div:nth-child(2) > div:nth-child(1)
+{
+  background-color: var(--test-background-transparent);
+}
+
+.MainSection:nth-child(12) > .DetailGrid:nth-child(1) > div:nth-child(2) > div > div:last-child{
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.MainSection:nth-child(12) > div:nth-child(2) 
+{
+  margin-top: 1.2rem;
+  margin-bottom: 10vh;
+
+  width: 100%;
+}
+
+.MainSection:nth-child(12) > div:nth-child(2) > div
+{
+  margin-left: auto;
+  margin-right: 20vw;
+  width: 10%;
+  height: 3vh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.MainSection:nth-child(12) > .DetailGrid:nth-child(3) > div:nth-child(2) > div{
+  margin: auto;
+  width: auto;
+  display: grid;
+  column-gap: 5vw;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.MainSection:nth-child(12) > .DetailGrid:nth-child(3) > div:nth-child(2) > div > div{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.MainSection:nth-child(12) > .DetailBtn:nth-child(4)
+{
+  margin: 5vh auto;
+}
+
+/* 
+ !!! Section 13 !!!
+*/
+
+.MainSection:nth-child(13)
+{
+  padding-bottom: 20vh;
+}
+
+.MainSection:nth-child(13) > .DetailGrid:nth-child(1) > div:nth-child(2)
+{
+  display: grid;
+  margin-right: auto;
+  grid-template-columns: auto auto auto;
+  column-gap: 3vw;
+}
+
+.MainSection:nth-child(13) > .DetailGrid:nth-child(1) > div:nth-child(2) > div
+{
+  width: auto;
+}
+
+.MainSection:nth-child(13) > .DetailGrid:nth-child(1) > div:nth-child(2) > div > .TextSmallWrapper{
+  justify-content: flex-start;
+}
