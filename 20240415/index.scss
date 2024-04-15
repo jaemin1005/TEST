@@ -1,0 +1,46 @@
+$_mainFontColor : #383636;
+
+$_mainViewportWidth : 1920;
+$_mainViewportHeight : 1080;
+
+@function TransPixelToVW($pixelWidth){
+  $calcPixel : $_mainViewportWidth * 0.01 * 1px; 
+  @return math.div($pixelWidth, $calcPixel) * 1vw;
+}
+
+@function TransPixelToVH($pixelHeight)
+{
+  $calcPixel : $_mainViewportHeight * 0.01 * 1px;
+  @return math.div($pixelHeight, $calcPixel) * 1vh;
+}
+
+@function CalcPadding($topPx, $bottomPx, $leftPx, $rightPx)
+{
+  @if(($bottomPx or $bottomPx or $leftPx or $rightPx) == 0)
+  {
+    @return false;
+  }
+
+  @else
+  {
+    
+  }
+
+}
+
+
+@mixin MainTextContainer($widthPixel, $height)
+{
+  width: TransPixelToVW($widthPixel);
+  height: TransPixelToVH($heightPixel);
+
+  $transMarginHeight : TransPixelToVH($marginHeightPixel);
+  $transMarginWidth : TransPixelToVW($marginWidthPixel);
+
+  padding : TransPixelToVW($transPaddingWidth);
+  
+  $transPaddingHeight : TransPixelToVH($transMarginHeight);
+
+  
+}
+

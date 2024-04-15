@@ -35,7 +35,7 @@ var Bird = (function(){
     Animal.apply(this, arguments);
   }
 
-  Bird.prototype = Animal.prototype;
+  Bird.prototype = Object.create(Animal.prototype);
   Bird.prototype.constructor = Bird;
 
   Bird.prototype.fly = function(){
