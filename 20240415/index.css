@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/*
+@function TransPixelToVW($pixelValue)
+{
+  @if($pixelValue == auto)
+  {
+    @return $pixelValue;
+  }
+
+  @else
+  {
+    //$calcPixel : $_mainViewportWidth * 0.01 * 1px; 
+    @return ($pixelValue / $_mainViewportWidth) * 1vw;
+  }
+}
+*/
+.TestContainer {
+  width: 0.5208333333vw;
+  height: 0.5208333333vw;
+  box-sizing: border-box;
+  /* 
+   * 현재 margin, paddin의 전체 길이를 구한다
+   * 구하는 이유는 for문을 쓰기 위해서 
+   */
+  /*
+  * margin의 배열을 받아와서, 배열의 요소들이 pixel로 되어 있기 때문에 vw로 변환하는 작업
+  */
+  padding: 5.2083333333vw 2.6041666667vw;
+  margin: 5.2083333333vw 2.6041666667vw;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.TextSummary > div:nth-child(1) p {
+  font-family: "Roboto";
+  font-size: 1.8rem;
+  color: white;
+}
+
+.TextSummary > div:nth-child(2) p {
+  font-family: "Roboto";
+  font-size: 1rem;
+}
+
+.MainSector {
+  width: 89.53125vw;
+  height: auto;
+  box-sizing: border-box;
+  /* 
+   * 현재 margin, paddin의 전체 길이를 구한다
+   * 구하는 이유는 for문을 쓰기 위해서 
+   */
+  /*
+  * margin의 배열을 받아와서, 배열의 요소들이 pixel로 되어 있기 때문에 vw로 변환하는 작업
+  */
+  padding: 3.125vw 3.125vw 3.125vw 3.125vw;
+  margin: 5.2083333333vw 5.2083333333vw 5.2083333333vw 5.2083333333vw;
+  background-color: #383636;
+}
+
+.TextSummary {
+  width: 83.3333333333vw;
+  height: auto;
+  box-sizing: border-box;
+  /* 
+   * 현재 margin, paddin의 전체 길이를 구한다
+   * 구하는 이유는 for문을 쓰기 위해서 
+   */
+  /*
+  * margin의 배열을 받아와서, 배열의 요소들이 pixel로 되어 있기 때문에 vw로 변환하는 작업
+  */
+  padding: 0vw;
+  margin: 0vw;
+}
+.TextSummary > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+}
+.TextSummary > div:nth-child(2) {
+  display: none;
+}
+
+.TextSummary > div:nth-child(1) {
+  width: 83.3333333333vw;
+  height: auto;
+  box-sizing: border-box;
+  /* 
+   * 현재 margin, paddin의 전체 길이를 구한다
+   * 구하는 이유는 for문을 쓰기 위해서 
+   */
+  /*
+  * margin의 배열을 받아와서, 배열의 요소들이 pixel로 되어 있기 때문에 vw로 변환하는 작업
+  */
+  padding: 0vw;
+  margin: 0vw;
+}
+.TextSummary > div:nth-child(2) {
+  width: 83.3333333333vw;
+  height: auto;
+  margin-top: 0.2604166667vw;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}/*# sourceMappingURL=index.css.map */

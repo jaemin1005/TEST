@@ -1,46 +1,191 @@
-$_mainFontColor : #383636;
+@use "sass:list";
+@use "sass:meta";
+
+$_mainBackgroundColor : #383636;
 
 $_mainViewportWidth : 1920;
 $_mainViewportHeight : 1080;
 
-@function TransPixelToVW($pixelWidth){
-  $calcPixel : $_mainViewportWidth * 0.01 * 1px; 
-  @return math.div($pixelWidth, $calcPixel) * 1vw;
-}
+$_mainFontFamily : "Roboto";
+$_mainFontSize : 1.8rem;
+$_mainFontColor : white;
 
-@function TransPixelToVH($pixelHeight)
-{
-  $calcPixel : $_mainViewportHeight * 0.01 * 1px;
-  @return math.div($pixelHeight, $calcPixel) * 1vh;
-}
+$_subFontFamily : "Roboto";
+$_subFontSize : 1.0rem;
+$_subFontColot : grey;
 
-@function CalcPadding($topPx, $bottomPx, $leftPx, $rightPx)
+
+
+@function TransPixelToVW($pixelValue)
 {
-  @if(($bottomPx or $bottomPx or $leftPx or $rightPx) == 0)
+  @if($pixelValue == auto)
   {
-    @return false;
+    @return $pixelValue;
   }
 
   @else
   {
-    
+    $calcPixel : $_mainViewportWidth * 0.01 * 1px; 
+    @return ($pixelValue / $calcPixel) * 1vw;
+  }
+}
+
+/*
+@function TransPixelToVW($pixelValue)
+{
+  @if($pixelValue == auto)
+  {
+    @return $pixelValue;
   }
 
+  @else
+  {
+    //$calcPixel : $_mainViewportWidth * 0.01 * 1px; 
+    @return ($pixelValue / $_mainViewportWidth) * 1vw;
+  }
 }
+*/
 
 
-@mixin MainTextContainer($widthPixel, $height)
+
+@function CalcPaddingAndMargin($topPx, $rightPx, $bottomPx, $leftPx)
 {
-  width: TransPixelToVW($widthPixel);
-  height: TransPixelToVH($heightPixel);
-
-  $transMarginHeight : TransPixelToVH($marginHeightPixel);
-  $transMarginWidth : TransPixelToVW($marginWidthPixel);
-
-  padding : TransPixelToVW($transPaddingWidth);
-  
-  $transPaddingHeight : TransPixelToVH($transMarginHeight);
-
-  
+  $arr : ($topPx, $rightPx, $bottomPx, $leftPx);
+  @return (TransPixelToVW($topPx) TransPixelToVW($rightPx) TransPixelToVW($bottomPx) TransPixelToVW($leftPx));
 }
 
+// Error : 값을 0이 아니라 0px로 줘야된다.
+@mixin MainContainer($widthPx, $heightPx, $marginTop : 0, $marginRight : 0, $marginBottom : 0, $marginLeft : 0, $paddingTop : 0, $paddingRight : 0, $paddingBottom : 0, $paddingLeft : 0)
+{
+  width: if($widthPx == auto or $widthPx == 0, $widthPx, TransPixelToVW($widthPx));
+  height: if($heightPx == auto or $heightPx == 0, $heightPx, TransPixelToVW($heightPx));
+  
+  margin-top: if($marginTop == auto or $marginTop == 0, $marginTop, TransPixelToVW($marginTop));
+  margin-bottom: if($marginBottom == auto or $marginBottom == 0, $marginBottom, TransPixelToVW($marginBottom));
+  margin-left: if($marginLeft == auto or $marginLeft == 0, $marginLeft, TransPixelToVW($marginLeft));
+  margin-right: if($marginRight== auto or $marginRight == 0, $marginRight, TransPixelToVW($marginRight));  
+
+  padding-top: if($paddingTop == auto or $paddingTop == 0, $paddingTop, TransPixelToVW($paddingTop));
+  padding-bottom: if($paddingBottom == auto or $paddingBottom == 0, $paddingBottom, TransPixelToVW($paddingBottom));
+  padding-left: if($paddingLeft == auto or $paddingLeft == 0, $paddingLeft, TransPixelToVW($paddingLeft));
+  padding-right: if($paddingRight == auto or $paddingRight == 0, $paddingRight, TransPixelToVW($paddingRight));
+  
+  box-sizing: border-box;
+}
+
+
+@mixin MainContainer_2($widthPx, $heightPx, $marginPx : 0px, $paddingPx : 0px)
+{
+  width: if($widthPx == auto or $widthPx == 0, $widthPx, TransPixelToVW($widthPx));
+  height: if($heightPx == auto or $widthPx == 0, $heightPx, TransPixelToVW($heightPx));
+  
+  // * border-line 기준의 pixel값이기 때문에 box-sizing을 변경해 준다.
+  box-sizing: border-box;
+
+  /* 
+   * 현재 margin, paddin의 전체 길이를 구한다
+   * 구하는 이유는 for문을 쓰기 위해서 
+   */
+  $marginLength : length($marginPx);
+  $paddingLength : length($paddingPx); 
+
+  //@debug "Length #{$marginLength}, #{$paddingLength}";
+
+  /*
+  * margin의 배열을 받아와서, 배열의 요소들이 pixel로 되어 있기 때문에 vw로 변환하는 작업
+  */
+  @for $item from 1 to $marginLength+1
+  {
+    // * 
+    $value : nth($marginPx, $item);
+    $num : ();
+    @if($value !=0 or $value != auto)
+    {      
+      //#{$marginPx}: list.set-nth($list: $marginPx, $n: $item, $value: TransPixelToVW($value));
+      $marginPx: set-nth($list: $marginPx, $n: $item, $value: TransPixelToVW($value));
+    }  
+  }
+
+  @for $item from 1 to $paddingLength+1
+  {
+    $value : nth($paddingPx, $item);
+    @if($value !=0 or $value != auto)
+    {
+      //$paddingLength: set-nth($list: $paddingPx, $n: $item, $value: TransPixelToVW($value));
+      $paddingPx: set-nth($list: $paddingPx, $n: $item, $value: TransPixelToVW($value));
+    }  
+  }
+
+  padding: $paddingPx;
+  margin: $marginPx;
+}
+
+.TestContainer{
+  @include MainContainer_2(10px, 10px, (100px 50px),(100px 50px))
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+%MainTextFont
+{
+  font-family: $_mainFontFamily;
+  font-size: $_mainFontSize;
+  color: $_mainFontColor;
+}
+
+%SubTextFont
+{
+  font-family: $_subFontFamily;
+  font-size: $_subFontSize;
+}
+
+.MainSector
+{
+  @include MainContainer_2(1719px, auto, (100px 100px 100px 100px), (60px 60px 60px 60px));
+  background-color: $_mainBackgroundColor;
+}
+
+.TextSummary
+{
+  @include MainContainer_2(1600px, auto);
+
+  > div
+  {
+    &:nth-child(1)
+    {
+     @extend %MainTextContainer;
+      display: flex;
+      align-items: center;
+    }
+
+    &:nth-child(2)
+    {
+      @extend %SubTextContainer;
+      display: none;
+    }
+  }
+}
+
+
+%MainTextContainer
+{
+  @include MainContainer_2(1600px, auto);
+
+  p
+  {
+    @extend %MainTextFont;
+  }
+}
+
+%SubTextContainer
+{
+  @include MainContainer(1600px, auto, 5px, 0, 0, 0);
+  p
+  {
+    @extend %SubTextFont;
+  }
+}
