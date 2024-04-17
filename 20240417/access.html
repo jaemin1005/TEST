@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>공욱재</h1>
+  <script>
+    var monsterDrink = {
+      name : "monster",
+      brand : "코카콜라",
+    };
+
+    window.console.log(monsterDrink);
+    window.console.log(monsterDrink["brand"]);
+
+    var hotsixDrink = {};
+    window.console.log(hotsixDrink);
+
+    hotsixDrink.name = "핫식스";
+    hotsixDrink.name = "";
+    window.console.log(hotsixDrink);
+
+    let getkey = document.getElementsByTagName('h1');
+    getkey[0].textContent = "Shut up";
+
+    let hi = (async() => {
+      await new Promise((resolve, reject) => { setTimeout(resolve, 5000)})
+      console.log("hi");
+
+    })();
+
+    console.log("bye");
+    console.log(getkey[0]);
+  </script>  
+</body>
+</html>
