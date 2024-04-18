@@ -43,3 +43,21 @@ obj.name.push(3);
 console.log(obj.name);
 
 //console.log(Object.getOwnPropertyDescriptor(obj, 'name'))
+
+
+let TextObj = (function(){
+
+  function TextSummary(id, curOffset, childOffset)
+  {
+    this.id = id;
+    this.curOffset = curOffset;
+    this.childOffset = childOffset;
+  }
+
+
+
+  return TextSummary;
+}());
+
+let namea = new TextObj(1,2,3);
+console.log(namea.id);

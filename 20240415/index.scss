@@ -1,18 +1,19 @@
 @use "sass:list";
 @use "sass:meta";
 
-$_mainBackgroundColor : #383636;
+$_mainBackgroundColor : #101010;
+$_bodyBackgroundColor : rgb(66, 66, 69);
 
 $_mainViewportWidth : 1920;
 $_mainViewportHeight : 1080;
 
 $_mainFontFamily : "Roboto";
 $_mainFontSize : 1.8rem;
-$_mainFontColor : white;
+$_mainFontColor : rgb(245, 245, 247);
 
 $_subFontFamily : "Roboto";
 $_subFontSize : 1.0rem;
-$_subFontColot : grey;
+$_subFontColor : #86868b;
 
 
 
@@ -130,6 +131,11 @@ $_subFontColot : grey;
   padding: 0;
 }
 
+body
+{
+  background-color: $_bodyBackgroundColor;
+}
+
 %MainTextFont
 {
   font-family: $_mainFontFamily;
@@ -141,6 +147,7 @@ $_subFontColot : grey;
 {
   font-family: $_subFontFamily;
   font-size: $_subFontSize;
+  color: $_subFontColor;
 }
 
 .MainSector
@@ -165,7 +172,6 @@ $_subFontColot : grey;
     &:nth-child(2)
     {
       @extend %SubTextContainer;
-      display: none;
     }
   }
 }
@@ -183,7 +189,7 @@ $_subFontColot : grey;
 
 %SubTextContainer
 {
-  @include MainContainer(1600px, auto, 5px, 0, 0, 0);
+  @include MainContainer(1600px, auto, 5px, 0, 20px, 0);
   p
   {
     @extend %SubTextFont;

@@ -34,15 +34,20 @@
   padding: 0;
 }
 
+body {
+  background-color: rgb(66, 66, 69);
+}
+
 .TextSummary > div:nth-child(1) p {
   font-family: "Roboto";
   font-size: 1.8rem;
-  color: white;
+  color: rgb(245, 245, 247);
 }
 
 .TextSummary > div:nth-child(2) p {
   font-family: "Roboto";
   font-size: 1rem;
+  color: #86868b;
 }
 
 .MainSector {
@@ -58,7 +63,7 @@
   */
   padding: 3.125vw 3.125vw 3.125vw 3.125vw;
   margin: 5.2083333333vw 5.2083333333vw 5.2083333333vw 5.2083333333vw;
-  background-color: #383636;
+  background-color: #101010;
 }
 
 .TextSummary {
@@ -79,10 +84,6 @@
   display: flex;
   align-items: center;
 }
-.TextSummary > div:nth-child(2) {
-  display: none;
-}
-
 .TextSummary > div:nth-child(1) {
   width: 83.3333333333vw;
   height: auto;
@@ -101,7 +102,7 @@
   width: 83.3333333333vw;
   height: auto;
   margin-top: 0.2604166667vw;
-  margin-bottom: 0;
+  margin-bottom: 1.0416666667vw;
   margin-left: 0;
   margin-right: 0;
   padding-top: 0;

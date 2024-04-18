@@ -10,5 +10,14 @@ let UserCreate = (function(){
  return User;
 }());
 
+
+let MatchCreate = function(){
+  function MatchGame(){
+
+  }
+
+}
+
+
 let user = new UserCreate("#2313iod","터검니","000");
 console.log(user);

@@ -10,10 +10,74 @@
   <section class="MainSector">
     <div class="TextSummary">
       <div>
-        <p>클로져</p>
+        <p>객체</p>
       </div>
       <div>
-        <p>안녕</p>
+        <p>객체란 관련된 데이터와 함수의 집합이다. 보통 데이터를 프로퍼티라 부르고 함수를 메소드라 칭한다.<br>
+          메소드 축약 표현 시, 메소드 함수는 다른 함수랑 차이점이 있음. non-constructor 함수임으로, 인스턴스를 생성할 수 없다.<br> 
+          그럼으로 프로토타입또한 생성하지 않는다. [[HomeObject]] 내부 슬롯을 가지며 super를 통해 부모클래스의 메소드를 참조한다.<br>
+          점 표기법과, 괄호표기법으로 객체의 프로퍼티에 접근할 수 있다.</p>
+      </div>
+    </div>
+    <div class="TextSummary">
+      <div>
+        <p>Symbol</p>
+      </div>
+      <div>
+        <p>변경불가능한 원시타입의 값이다. 다른 값과 절대 중복되지 않은 유일무이한 값<br>
+          심벌 값은 암묵적으로 문자열이나 숫자 타입으로 변환되지 않는다. 단 불리언 타입으로는 암죽적으로 타입 변환된다.<br> 
+          다른 값과 중복지 않은 유일무이한 값이다.<br>
+          심볼은 중복되지 않는 상수 값을 생성하는 것은 물론 기존에작성된 코드에 영향을 주지 않고 새로운 프로퍼티룰 추가하기위헤<br>
+          즉 하위 호황성을 보장하기 위해 도입되었다.
+      </div>
+    </div>
+    <div class="TextSummary">
+      <div>
+        <p>Number</p>
+      </div>
+      <div>
+        <p>자바 스크립트에서는 독특하게 하나의 숫자타입만 존재한다.<br>
+          숫자타입의 갑은 배정밀도 64비트 부동소숫점 형식을 따른다.<br> 
+        </p>
+      </div>
+    </div>
+    <div class="TextSummary">
+      <div>
+        <p>문자열</p>
+      </div>
+      <div>
+        <p>텍스트 데이터를 나타내느데 사용한다.<br>
+          문자열은 작은따옴표, 큰 따옴표, 백틱으로 텍스트를 감싼다.<br>
+          문자열을 불변성을 지니기 떄문에 배열로 접근하여 값을 바꾸지 못한다. 
+        </p>
+      </div>
+    </div>
+    <div class="TextSummary">
+      <div>
+        <p>undefined</p>
+      </div>
+      <div>
+        <p>undefined는 개발자가 의도적으로 할당하기 위한 값이 아니라 자바스크립트 엔진이 변수를 초기화 할 때 사용하는 값이다.
+        </p>
+      </div>
+    </div>
+    <div class="TextSummary">
+      <div>
+        <p>null</p>
+      </div>
+      <div>
+        <p>undifined와는 다르게 변수에 값을 없다는 것을 의도적으로 명시할 때 사용.
+        </p>
+      </div>
+    </div>
+    <div class="TextSummary">
+      <div>
+        <p>Boolean</p>
+      </div>
+      <div>
+        <p>논리적 참, 거짓을 나타내는 데이터 타입<br>
+          == 사용할 때, 주의가 필요 자바스크립에서 암묵적 타입 변환을 하기 때문에 문자열의 "" 같은 경우도 false로 처리될 수 있음.
+        </p>
       </div>
     </div>
     <script src="index.js"></script>
