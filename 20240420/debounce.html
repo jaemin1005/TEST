@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" title="hi">
+  <div class="msg"></div>
+  <script>
+    const $input = document.querySelector('input');
+    const $msg = document.querySelector('.msg');
+
+    // const debounce = (callback, delay) => {
+    //   let timerId;
+
+    //   return(...args) => {
+    //     if(timerId) clearTimeout(timerId);
+    //     timerId = setTimeout(callback, delay, ...args);
+    //   };
+    // };
+
+    $input.oninput = debounce((event) => {
+      $msg.textContent = event.target.value;
+    }, 30032)
+
+function now(){
+  return Date.now() || new Date().getTime;
+}
+
+function debounce(func, wait, immediate)
+{
+  var timeout, previous, args, result, context;
+
+  var later = function() {
+    var passed = now() - previous;
+    if (wait > passed) {
+      timeout = setTimeout(later, wait - passed);
+    } else {
+      timeout = null;
+      console.log(this);
+      console.log(context);
+      if (!immediate) result = func.apply(context, args);
+
+      if (!timeout) args = context = null;
+    }
+  };
+
+  // var debounced = (function(...args){
+  //   context = this;
+  //   previous = now();
+  //   if(!timeout)
+  //   {
+  //     timeout = setTimeout(later,wait)
+  //     if(immediate) result = func.apply(context, args);
+  //     return result;
+  //   }
+  // });
+
+  var debounced = restArguments(function(_args) {
+    context = this;
+    args = _args;
+    previous = now();
+    if (!timeout) {
+      timeout = setTimeout(later, wait);
+      //console.log(this);
+      if (immediate) result = func.apply(context, args);
+    }
+    return result;
+  });
+
+  debounced.cancel = function() {
+    clearTimeout(timeout);
+    timeout = args = context = null;
+  };
+
+  return debounced;
+}
+
+
+
+
+function restArguments(func, startIndex) {
+  startIndex = startIndex == null ? func.length - 1 : +startIndex;
+  return function() {
+    //return func.apply(this, [...arguments])
+    //console.log(this);
+    var length = Math.max(arguments.length - startIndex, 0),
+        rest = Array(length),
+        index = 0;
+    for (; index < length; index++) {
+      rest[index] = arguments[index + startIndex];
+    }
+    switch (startIndex) {
+      case 0: return func.call(this, rest);
+      case 1: return func.call(this, arguments[0], rest);
+      case 2: return func.call(this, arguments[0], arguments[1], rest);
+    }
+
+    var args = Array(startIndex + 1);
+    for (index = 0; index < startIndex; index++) {
+      args[index] = arguments[index];
+    }
+    args[startIndex] = rest;
+    return func.apply(this, args);
+  };
+}
+  </script>
+</body>
+</html>
