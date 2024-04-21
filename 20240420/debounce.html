@@ -23,7 +23,7 @@
 
     $input.oninput = debounce((event) => {
       $msg.textContent = event.target.value;
-    }, 30032)
+    }, 300)
 
 function now(){
   return Date.now() || new Date().getTime;
@@ -36,7 +36,7 @@ function debounce(func, wait, immediate)
   var later = function() {
     var passed = now() - previous;
     if (wait > passed) {
-      timeout = setTimeout(later, wait - passed);
+    timeout = setTimeout(later, wait - passed);
     } else {
       timeout = null;
       console.log(this);
@@ -47,24 +47,12 @@ function debounce(func, wait, immediate)
     }
   };
 
-  // var debounced = (function(...args){
-  //   context = this;
-  //   previous = now();
-  //   if(!timeout)
-  //   {
-  //     timeout = setTimeout(later,wait)
-  //     if(immediate) result = func.apply(context, args);
-  //     return result;
-  //   }
-  // });
-
   var debounced = restArguments(function(_args) {
     context = this;
     args = _args;
     previous = now();
     if (!timeout) {
       timeout = setTimeout(later, wait);
-      //console.log(this);
       if (immediate) result = func.apply(context, args);
     }
     return result;
@@ -84,8 +72,6 @@ function debounce(func, wait, immediate)
 function restArguments(func, startIndex) {
   startIndex = startIndex == null ? func.length - 1 : +startIndex;
   return function() {
-    //return func.apply(this, [...arguments])
-    //console.log(this);
     var length = Math.max(arguments.length - startIndex, 0),
         rest = Array(length),
         index = 0;
