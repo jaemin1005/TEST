@@ -5,7 +5,6 @@ const async = generatorFunc => {
 
   const onReslved = arg => {
     const result = generator.next(arg);
-
     return result.done ? result.value : result.value.then(res => onReslved(res));
   };
 

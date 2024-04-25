@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <div>김수현</div>
+    <div>유호영</div>
+    <div>조자연</div>
+  </div>
+  <script>
+    let root = window.document.getElementById("root");
+    console.log(root);
+    console.dir(root);
+    root.id = "container";
+    console.dir(root);
+
+    let click = function(){
+      if(this.textContent == "김수현")
+        this.textContent = "문혜림";
+      if(this.textContent == "유호영")
+        this.textContent = "배성빈";
+      if(this.textContent == "조자연")
+        this.textContent = "조우식"
+    }
+
+    // for(let child of Array.from(root.children))
+    // {
+    //   child.onclick = click;
+    // }
+
+    // HTMLCollection[Symbol.iterator] = function(){
+    //   let nStart = 0;
+    //   return {
+    //     next(){
+    //       return { value : this.item(nStart++), done : nStart >= this.length};
+    //     }
+    //   };
+    // }
+
+    HTMLCollection[Symbol.iterator] = function(){ return this};
+    HTMLCollection.next = function(){
+      return { value : this.item(nStart++), done : nStart >= this.length};
+    }
+
+
+    for(let child of root.children)
+    {
+      console.log(child.textContent);
+      child.onclick = click;
+    }
+
+    let arr = ["배성빈", "신지윤", "김이티저"];
+    let name = ["Apple", "Samsung", "FA"]
+    
+    for(let nIdx = 0 ; nIdx < arr.length ; nIdx++)
+    {
+      arr[nIdx] = name[nIdx];
+      console.log(arr[nIdx]);
+    }
+
+    console.log(a !== b);
+
+  </script>
+</body>
+</html>

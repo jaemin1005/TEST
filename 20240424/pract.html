@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <h1>공욱재</h1>
+  </div>
+</body>
+<script>
+  let root = document.getElementById("root")
+  let name = root.children[0];
+
+  name.addEventListener("click", trueChanger());
+  name.addEventListener("click", () => {name.style.color = "blue"});
+
+  function trueChanger()
+  {
+    let isTrue = true;
+    return function()
+    {
+      if(isTrue == true)
+      {
+        name.textContent = "도라에몽";
+        console.log(name.textContent);
+      }
+      else
+      {
+        name.textContent = "공욱재";
+      }
+
+      isTrue = !isTrue;
+    }
+  }
+
+  function Plus()
+  {
+    return arguments.length == 2 ? arguments[0] + arguments[1] : false;
+  }
+
+  function a()
+  {
+    let num = 0;
+    [...arguments].forEach((item) => {num += item});
+    console.log(num);
+  }
+
+  a(1,2,3);
+  console.log(Plus(1,2));
+
+  function check()
+  {
+    return typeof arguments[0] == "number" ? console.log("숫자") : console.log("메롱");
+  }
+
+  check(100);
+
+</script>
+</html>
