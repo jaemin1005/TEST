@@ -43,6 +43,7 @@
 
     HTMLCollection[Symbol.iterator] = function(){ return this};
     HTMLCollection.next = function(){
+      let nStart = 0;
       return { value : this.item(nStart++), done : nStart >= this.length};
     }
 
