@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="root">
+    <div class="item realItem">
+      <div class="label_font">나의 이름</div>
+      <div>
+        <div class="text_div color_gray">
+          <input id="name" class="color_gray" placeholder="나의 이름을 작성하세요. ex) 공욱재">
+        </div>
+        <div class="rect_btn color_red"></div>
+        <div class="rect_btn color_green"></div>
+      </div>
+    </div>
+    <div class="item realItem">
+      <div class="label_font">비밀 번호</div>
+      <div>
+        <div class="text_div color_gray">
+          <input id="password" class="color_gray" placeholder="정자이름과 핸드폰 뒷자리 4자리를 작성해주세요. ex) 공욱재0957">
+        </div>
+        <div class="rect_btn color_red"></div>
+        <div class="rect_btn color_green"></div>
+      </div>
+    </div>
+    <div class="item realItem">
+      <div class="label_font">비밀번호 확인</div>
+      <div>
+        <div class="text_div color_gray">
+          <input id="password_check" class="color_gray" placeholder="위 비밀번호 입력과 동일하게 다시한번 작성해주세요.">
+        </div>
+        <div class="rect_btn color_red"></div>
+        <div class="rect_btn color_green"></div>
+      </div>
+    </div>
+    <div class="item realItem">
+      <div class="label_font">이메일 주소</div>
+      <div>
+        <div class="text_div color_gray">
+          <input id="email" class="color_gray" placeholder="이메일의 주소 양식에 맞게 작성해주세요.">
+        </div>
+        <div class="rect_btn color_red"></div>
+        <div class="rect_btn color_green"></div>
+      </div>
+    </div>
+    <div class="item realItem">
+      <div class="label_font">핸드폰 번호</div>
+      <div>
+        <div class="text_div color_gray">
+          <input id="phone" class="color_gray" placeholder="이메일의 주소 양식에 맞게 작성해주세요.">
+        </div>
+        <div class="rect_btn color_red"></div>
+        <div class="rect_btn color_green"></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="label_font">작성 완료</div>
+      <div>
+        <div id="red_team" class="text_div color_red">
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="label_font"></div>
+      <div>
+        <div id="green_team" class="text_div color_green"></div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="client.js" type="module"></script> 
+</html>
